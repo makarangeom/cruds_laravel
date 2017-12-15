@@ -1,0 +1,63 @@
+body{
+	background-color: lightblue;
+}
+.title{
+	color: #000000;
+	font-weight: bold;
+	text-decoration: underline;
+	text-align: center;
+}
+.pull-right>.btn{
+	font-weight: bold;
+	padding: 3px 16px 3px 16px;
+}
+
+/* 	for form create  */
+.panel-primary {
+    border-color: #337ab7;
+    margin-top: 15px;
+}
+.panel-heading{
+	text-align: center;
+	font-weight: bold;
+	font-size: 30px;
+}
+.panel-body{
+	padding: 50px 0px 40px 0px;
+}
+input[type="text"]{
+	height: 35px;
+}
+#date{
+	height: 35px;
+}
+.table th {
+    font-weight: bold;
+    text-align: center;
+}
+.table-condensed > tbody > tr > td  > a {
+	margin-top: 30px;
+	padding: 8px 33px 8px 33px;
+	font-weight: bold;
+}
+.table-condensed > tbody > tr > td  > .btn-primary{
+	float: right;
+}
+.table-condensed > tbody > tr > .gold{
+	width: 86%;
+}
+.table-condensed > tbody > tr > .preview{
+	width: 60%;
+}
+.form-search input, .form-inline input, .form-horizontal input, .form-search textarea, .form-inline textarea, .form-horizontal textarea, .form-search select, .form-inline select, .form-horizontal select, .form-search .help-inline, .form-inline .help-inline, .form-horizontal .help-inline, .form-search .uneditable-input, .form-inline .uneditable-input, .form-horizontal .uneditable-input, .form-search .input-prepend, .form-inline .input-prepend, .form-horizontal .input-prepend, .form-search .input-append, .form-inline .input-append, .form-horizontal .input-append {
+    display: inline-block;
+    *display: inline;
+    margin-bottom: 0;
+    vertical-align: middle;
+    *zoom: 1;
+    margin-bottom: 23px;
+}
+.table-condensed > tbody > tr > td > #cancel_preview{
+	width: 100%;
+	font-size: 15px;
+}
