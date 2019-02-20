@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function () { 
     return view('welcome');
 });
 
@@ -21,3 +21,4 @@ Route::post('articles/store', 'ArticlesController@store');
 Route::get('articles/preview/{id}', 'ArticlesController@show');
 Route::get('articles/edit/{id}', 'ArticlesController@edit');
 Route::post('articles/update', 'ArticlesController@update');
+Route::get('articles/destroy/{id}', 'ArticlesController@destroy');

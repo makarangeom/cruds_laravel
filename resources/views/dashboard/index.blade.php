@@ -8,6 +8,12 @@
     </div>
   </div>
 
+  @if ($message = Session::get('success'))
+  	<div class="alert alert-success cruds-msg">
+  		<p>{{ $message }}</p>
+  	</div>
+  @endif
+
   <div class="row">
   	<div class="col-lg-12">
   		<div class="pull-right">
@@ -16,11 +22,7 @@
   	</div>
   </div>
 
-  @if ($message = Session::get('success'))
-  	<div class="alert alert-success">
-  		<p>{{ $message }}</p>
-  	</div>
-  @endif
+  
 
   <table class="table table-bordered">
   	<tr>
@@ -45,10 +47,10 @@
         <td>{{$value->address}}</td>
         <td>{{$value->created_at}}</td>
         <td>{{$value->updated_at}}</td>
-        <td>
+        <td> 
         	<a class="btn btn-xs btn-primary" href="{!! url('articles/preview/'.$value->id) !!}"><i class="fa fa-eye"></i></a>
         	<a class="btn btn-xs btn-primary" href="{!! url('articles/edit/'.$value->id) !!}"><i class="fa fa-edit"></i></a>
-        	<a class="btn btn-xs btn-primary" href="#"><i class="fa fa-trash"></i></a>
+        	<a class="btn btn-xs btn-primary" onclick="return confirm('Are you sure?')" href="{!! url('articles/destroy/'.$value->id) !!}"><i class="fa fa-trash"></i></a>
         </td>
     </tr>
     @endforeach

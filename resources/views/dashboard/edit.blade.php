@@ -16,6 +16,12 @@
                         <tr>
                             <th><label>First Name: </label></th>
                             <td class="gold">
+                              <input class="form-control" name="id" id="input" type="hidden" value="{{$user->id}}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><label>First Name: </label></th>
+                            <td class="gold">
                               <input class="form-control" name="firstname" id="input" type="text" value="{{$user->first_name}}">
                             </td>
                         </tr>
@@ -29,8 +35,8 @@
                             <th><label>Sex: </label></th>
                             <td>
                                 <input type="radio" name="gender" value="male" {{ $user->sex == 'male' ? 'checked' : '' }}> Male
-							  	<input type="radio" name="gender" value="female" {{ $user->sex == 'female' ? 'checked' : '' }}> Female
-							  	<input type="radio" name="gender" value="other" {{ $user->sex == 'other' ? 'checked' : '' }}> Other
+                                <input type="radio" name="gender" value="female" {{ $user->sex == 'female' ? 'checked' : '' }}> Female
+                                <input type="radio" name="gender" value="other" {{ $user->sex == 'other' ? 'checked' : '' }}> Other
                             </td>
                         </tr>
                         <tr>

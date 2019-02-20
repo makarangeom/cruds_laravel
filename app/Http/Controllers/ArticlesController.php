@@ -37,15 +37,21 @@ class ArticlesController extends Controller
     public function store(Request $request)
     {
         $users = new Articles;
+        $user = Articles::where('email', $request->email)->first();
 
-        $users->first_name = $request->firstname;
-        $users->last_name = $request->lastname;
-        $users->sex = $request->gender;
-        $users->email = $request->email;
-        $users->dob = $request->dob;
-        $users->address = $request->address;
-        $users->save();
-        return redirect('articles');
+        if($user){
+            return redirect('articles')->with('', 'Your email already taken.');
+        }else{
+            $users->first_name = $request->firstname;
+            $users->last_name = $request->lastname;
+            $users->sex = $request->gender;
+            $users->email = $request->email;
+            $users->dob = $request->dob;
+            $users->address = $request->address;
+            $users->save();
+            return redirect('articles')->with('success', 'You have create a new recode successfully!');
+        }
+        
     }
 
     /**
@@ -81,8 +87,8 @@ class ArticlesController extends Controller
      */
     public function update(Request $request)
     {   
-        $users = new Articles;
-
+        $users = Articles::find($request->id);
+        // var_dump($request->id);
         $users->first_name = $request->firstname;
         $users->last_name = $request->lastname; 
         $users->sex = $request->gender;
@@ -90,7 +96,7 @@ class ArticlesController extends Controller
         $users->dob = $request->dob;
         $users->address = $request->address;
         $users->save();
-        return redirect('/');
+        return redirect('articles')->with('success', 'You have update this recode successfully!');
     }
 
     /**
@@ -101,6 +107,7 @@ class ArticlesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Articles::where('id',$id)->delete();
+        return redirect('articles')->with('success', 'You have delete this recode successfully!');
     }
 }
