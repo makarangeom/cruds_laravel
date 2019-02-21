@@ -28,6 +28,15 @@ class ArticlesController extends Controller
         return view('dashboard.create');
     }
 
+    public function messages()
+    {
+        return [
+            'email.required' => 'Email is required!',
+            'first_name.required' => 'Name is required!',
+            'last_name.required' => 'Password is required!'
+        ];
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -37,21 +46,30 @@ class ArticlesController extends Controller
     public function store(Request $request)
     {
         $users = new Articles;
-        $user = Articles::where('email', $request->email)->first();
+        // $user = Articles::where('email', $request->email)->first();
 
-        if($user){
-            return redirect('articles')->with('', 'Your email already taken.');
-        }else{
-            $users->first_name = $request->firstname;
-            $users->last_name = $request->lastname;
-            $users->sex = $request->gender;
-            $users->email = $request->email;
-            $users->dob = $request->dob;
-            $users->address = $request->address;
-            $users->save();
-            return redirect('articles')->with('success', 'You have create a new recode successfully!');
-        }
-        
+        $this->validate($request,[
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => 'required|email|unique:table_users',
+            'dob' => 'required',
+            'address' => 'required|min:3|max:20',
+        ],[
+            'firstname.required' => ' The first name field is required.',
+            'lastname.required' => ' The last name field is required.',
+            'address.required' => ' The address field is required.',
+            'address.min' => ' The address must be at least 5 characters.',
+            'address.max' => ' The address may not be greater than 100 characters.',
+        ]);
+
+        $users->first_name = $request->firstname;
+        $users->last_name = $request->lastname;
+        $users->sex = $request->gender;
+        $users->email = $request->email;
+        $users->dob = $request->dob;
+        $users->address = $request->address;
+        $users->save();
+        return redirect('articles')->with('success', 'You have create a new recode successfully!');
     }
 
     /**

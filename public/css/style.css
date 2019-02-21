@@ -52,19 +52,28 @@ input[type="text"]{
 .form-search input, .form-inline input, .form-horizontal input, .form-search textarea, .form-inline textarea, .form-horizontal textarea, .form-search select, .form-inline select, .form-horizontal select, .form-search .help-inline, .form-inline .help-inline, .form-horizontal .help-inline, .form-search .uneditable-input, .form-inline .uneditable-input, .form-horizontal .uneditable-input, .form-search .input-prepend, .form-inline .input-prepend, .form-horizontal .input-prepend, .form-search .input-append, .form-inline .input-append, .form-horizontal .input-append {
     display: inline-block;
     *display: inline;
-    margin-bottom: 0;
     vertical-align: middle;
     *zoom: 1;
-    margin-bottom: 23px;
+    /* margin-bottom: 23px; */
 }
 .table-condensed > tbody > tr > td > #cancel_preview{
 	width: 100%;
 	font-size: 15px;
 }
-.cruds-msg{
+.success-msg{
 	background-color: #DDDDDD;
 	padding: 8px;
 }
-.cruds-msg>p{
+.success-msg>p{
 	color: #337AB7;
+}
+.danger-msg{
+	background-color: #D9534F;
+	padding: 8px;
+}
+.danger-msg>p{
+	color: #fff;
+}
+.text-danger{
+	padding: 0px;
 }
